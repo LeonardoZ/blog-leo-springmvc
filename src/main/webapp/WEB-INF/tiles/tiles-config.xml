@@ -1,0 +1,75 @@
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+
+	<definition name="main_blog" template="/WEB-INF/views/templates/main_blog.jsp">
+		<put-attribute name="titulo" value="Leo's Blog" />
+	</definition>
+
+	<definition name="main_cp" template="/WEB-INF/views/templates/main_cp.jsp">
+		<put-attribute name="titulo" value="Leo's Blog CPanel" />
+	</definition>
+
+	<definition name="login" template="/WEB-INF/views/cpanel/login.jsp" />
+
+
+	<!-- Post Begin -->
+	<definition name="post/form" extends="main_cp">
+		<put-attribute name="conteudo"
+			value="/WEB-INF/views/cpanel/post/form.jsp" />
+	</definition>
+
+	<definition name="principal" extends="main_cp">
+		<put-attribute name="conteudo"
+			value="/WEB-INF/views/cpanel/principal.jsp" />
+	</definition>
+
+	<!-- Post End -->
+
+
+	<!-- Categoria Begin -->
+	<definition name="categoria/listar" extends="main_cp">
+		<put-attribute name="conteudo"
+			value="/WEB-INF/views/cpanel/categoria/listar.jsp">
+		</put-attribute>
+	</definition>
+
+	<definition name="categoria/form" extends="main_cp">
+		<put-attribute name="conteudo"
+			value="/WEB-INF/views/cpanel/categoria/form.jsp">
+		</put-attribute>
+	</definition>
+	<!-- Categoria End -->
+
+	<!-- Autor Begin -->
+	<definition name="autor/listar" extends="main_cp">
+		<put-attribute name="conteudo"
+			value="/WEB-INF/views/cpanel/autor/listar.jsp">
+		</put-attribute>
+	</definition>
+
+	<definition name="autor/perfil" extends="main_cp">
+		<put-attribute name="conteudo"
+			value="/WEB-INF/views/cpanel/autor/perfil.jsp">
+		</put-attribute>
+	</definition>
+
+	<definition name="autor/form" extends="main_cp">
+		<put-attribute name="conteudo"
+			value="/WEB-INF/views/cpanel/autor/form.jsp">
+		</put-attribute>
+	</definition>
+	<!-- Autor END -->
+	
+	<!-- Blog Begin -->
+	<definition name="index" extends="main_blog">
+		<put-attribute name="conteudo" value="/WEB-INF/views/index.jsp" />
+	</definition>
+	
+	<definition name="blog/post" extends="main_blog">
+		<put-attribute name="conteudo" value="/WEB-INF/views/blog/post_completo.jsp" />
+	</definition>
+	<!-- Blog END -->
+
+</tiles-definitions>
