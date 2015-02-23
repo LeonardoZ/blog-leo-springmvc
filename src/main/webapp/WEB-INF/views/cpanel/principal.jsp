@@ -22,12 +22,20 @@
 			<c:forEach items="${posts}" var="post">
 				<tr>
 					<td>${post.titulo}</td>
-					<td class="link-acoes"><spring:url
-							value="/cp/post/editar?id=${post.id}" var="editar_url" /> <span
-						class="label label-info"> <a href="${editar_url}">Editar</a></span>
-						<spring:url value="/cp/post/deletar.do?id=${post.id}"
-							var="deletar_url" /> <span class="label label-danger"> <a
-							href="${deletar_url}">Deletar</a></span></td>
+					<td class="link-acoes">
+					<spring:url value="/cp/post/editar?id=${post.id}" var="editar_url" /> 
+					<div class="btn btn-info btn-xs"> 
+						<a href="${editar_url}">Editar</a>
+					</div>
+					</td>
+					<!--  -->
+					<td>
+					<spring:url value="/cp/post/deletar.do?id=${post.id}" var="deletar_url" /> 
+					<form action="${deletar_url}" method="POST"> 
+						 	<input type="hidden" name="id" value="${post.id}">
+							<button class="btn btn-danger btn-xs" >Deletar</button>
+					</form>
+					</td>
 				</tr>
 			</c:forEach>
 		</tbody>

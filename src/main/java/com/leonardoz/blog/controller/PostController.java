@@ -80,7 +80,7 @@ public class PostController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/deletar.do")
+	@RequestMapping(value = "/deletar.do",method=RequestMethod.POST)
 	public ModelAndView deletar(@RequestParam(value = "id") Integer id) {
 		postService.deletar(id);
 		return listarPosts();

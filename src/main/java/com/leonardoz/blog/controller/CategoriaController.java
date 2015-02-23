@@ -83,7 +83,7 @@ public class CategoriaController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/deletar.do")
+	@RequestMapping(value = "/deletar.do",method=RequestMethod.POST)
 	public ModelAndView deletar(@RequestParam(value = "id") Integer id) {
 		service.deletar(id);
 		return new ModelAndView("redirect:listar");
