@@ -1,0 +1,6 @@
+src/main/webapp/resources/* linguist-vendored
+src/main/webapp/resources/css/estilo.css linguist-vendored=false
+src/main/webapp/resources/css/estilo_blog.css linguist-vendored=false
+src/main/webapp/resources/js/post/* linguist-vendored=false
+src/main/webapp/resources/js/blog/* linguist-vendored=false
+
