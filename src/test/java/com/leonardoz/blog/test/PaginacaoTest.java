@@ -13,7 +13,7 @@ public class PaginacaoTest {
 	@Test
 	public void paginarTest() {
 		int res = paginacao.paginar(5, 5, 1);
-		Assert.assertEquals(4, res);
+		Assert.assertEquals(5, res);
 	}
 	
 }

@@ -16,11 +16,11 @@
 				<form:hidden path="post.id" />
 
 				<div class="row">
-					<div class="col-sm-9 form-group">
+					<div class="col-xs-12 col-sm-9 form-group">
 						<form:label path="titulo">Título</form:label>
 						<form:input path="titulo" cssClass="form-control" />
 					</div>
-					<div class="col-sm-3 form-group">
+					<div class="col-xs-12 col-sm-3 form-group">
 						<form:label path="autor">Autor</form:label>
 						<form:input path="autor" cssClass="form-control" />
 					</div>
@@ -30,7 +30,7 @@
 					<form:textarea path="conteudo" cssClass="form-control"
 						placeholder="Comente aqui!" />
 				</div>
-				<form:button class="btn btn-primary pull-right">Incluir</form:button>
+				<form:button class="btn btn-primary">Incluir</form:button>
 			</form:form>
 
 		</div>

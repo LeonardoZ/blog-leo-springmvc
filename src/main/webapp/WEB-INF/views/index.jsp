@@ -3,6 +3,9 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <div id="posts">
+	<c:if test="${empty posts}">
+		<p class="help-block">Nenhum post disponível.</p>
+	</c:if>
 	<c:forEach var="post" items="${posts}">
 		<div class="post">
 			<div class="post-title ">
@@ -10,9 +13,9 @@
 			</div>
 			<div class="post-content">${post.conteudo}</div>
 			<div class="post-footer">
-				<span class="text-left"><a href="#">Compartilhar</a></span> 
+				<span class="text-left"><a href="#">Compartilhar</a></span>
 				<spring:url value="/blog/post?id=${post.id}" var="post_url" />
-				<span class="pull-right"><a href="${post_url}">Comentarios(0)</a></span>
+				<span class="pull-right"><a href="${post_url}">Comentarios(${post.numeroDeComentarios()})</a></span>
 			</div>
 		</div>
 	</c:forEach>

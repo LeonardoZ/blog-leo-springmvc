@@ -1,0 +1,47 @@
+version: '3'
+
+services:
+  app:
+    container_name: blogleo_app
+    restart: always
+    build: 
+      context: ../
+      dockerfile: ./docker/SpringDockerfile 
+    working_dir: /app
+    networks: 
+      - backend
+    volumes:
+      - ../:/app
+      - ~/.m2:/root/.m2
+    ports:
+      - 8080:8080
+    stdin_open: true
+    tty: true
+    entrypoint: 
+      - bash 
+      - -c
+      - |
+          mvn package 
+          sh target/bin/blogleo
+    depends_on:
+      - mysql_db
+
+  mysql_db:
+    container_name: blogleo_db
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: 'blogpass'
+      MYSQL_DATABASE: 'blogleo'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'blogpass'
+    networks:
+      - backend
+    volumes:
+      - ./mysql-data/:/var/lib/mysql
+      - ./mysql-conf/:/docker-entrypoint-initdb.d
+    ports:
+     - "3306:3306"
+     
+networks:
+  backend:
+    driver: bridge

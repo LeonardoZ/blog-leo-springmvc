@@ -24,41 +24,37 @@ public class BlogController {
 
 	@Autowired
 	private IPostService postService;
-	
+
 	@Autowired
 	private IComentarioService comentarioService;
 
 	@RequestMapping
-	public ModelAndView ultimosPosts(
-			@RequestParam(value="p",defaultValue = "1", required = false) int pagina) {
+	public ModelAndView ultimosPosts(@RequestParam(value = "p", defaultValue = "1", required = false) int pagina) {
 		List<Post> posts = postService.buscarPaginado(pagina);
+		posts.forEach(p -> System.out.println(p.getId()));
 		ModelAndView modelAndView = new ModelAndView("index");
 		modelAndView.addObject("posts", posts);
 		long round = Math.round(postService.contar() / 5.0);
 		modelAndView.addObject("paginas", round);
 		return modelAndView;
 	}
-	
+
 	@RequestMapping("/post")
-	public ModelAndView abrirPostCompleto(@RequestParam(value="id") int id){
+	public ModelAndView abrirPostCompleto(@RequestParam(value = "id") int id) {
 		Post post = postService.porId(id);
 		Comentario comentario = new Comentario();
 		comentario.setPost(post);
-		ModelAndView modelAndView = new ModelAndView("blog/post","comentario",comentario);
-		modelAndView.addObject("post",post);
+		ModelAndView modelAndView = new ModelAndView("blog/post", "comentario", comentario);
+		modelAndView.addObject("post", post);
 		return modelAndView;
-		
+
 	}
-	
+
 	@RequestMapping(value = "/comentario/adicionar.do", method = RequestMethod.POST)
 	public ModelAndView salvarComentario(@Valid Comentario comentario, BindingResult binding,
 			HttpServletRequest request) {
 		comentarioService.salvar(comentario);
-		return new ModelAndView("redirect:post?id="+comentario.getPost().getId().toString());
+		return new ModelAndView("redirect:/blog/post?id=" + comentario.getPost().getId().toString());
 	}
 
-
-	
-	
-	
 }

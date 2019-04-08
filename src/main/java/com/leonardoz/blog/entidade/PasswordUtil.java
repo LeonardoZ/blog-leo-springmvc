@@ -3,7 +3,6 @@ package com.leonardoz.blog.entidade;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-
 public class PasswordUtil {
 
 	public static String encrypt(String text) {
@@ -24,6 +23,11 @@ public class PasswordUtil {
 			e.printStackTrace();
 			return null;
 		}
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(encrypt("1234556").length()); 
+		
 	}
 	
 }

@@ -15,22 +15,30 @@
 
 </head>
 <body>
-	<div class="container center-form well">
-		<spring:url value="/login.do" var="url" />
-		<h2>Login</h2>
-		<form:form action="${url}" method="POST" class="form-horizontal">
+	<div class="container">
+		<div class="well center-form">
+			<spring:url value="/login.do" var="url" />
+			<div class="row">
+				<div class="col-xs-8 col-xs-offset-2">
+					<h2>Login</h2>
+					<form:form action="${url}" method="POST">
+						<div class="form-group">
+							<form:label path="email">Email</form:label>
+							<form:input cssClass="form-control" path="email"
+								placeholder="Digite seu e-mail" required="" />
+						</div>
+						<div class="form-group">
+							<form:label path="senha">Senha</form:label>
+							<form:password path="senha" cssClass="form-control"
+								placeholder="Digite sua senha" required="" />
+						</div>
 
-			<form:label path="email" cssClass="sr-only">Email</form:label>
-			<form:input cssClass="form-control" path="email"
-				placeholder="Digite seu e-mail" required=""  />
-
-			<form:label path="senha" cssClass="sr-only">Senha</form:label>
-			<form:password path="senha" cssClass="form-control"
-				placeholder="Digite sua senha" required="" />
-
-			<button class="btn btn-lg btn-primary btn-block" type="submit">
-				Log in</button>
-		</form:form>
+						<button class="btn btn-lg btn-primary btn-block" type="submit">
+							Log in</button>
+					</form:form>
+				</div>
+			</div>
+		</div>
 	</div>
 </body>
 </html>

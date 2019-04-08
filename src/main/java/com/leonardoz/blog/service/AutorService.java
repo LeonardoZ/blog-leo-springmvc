@@ -18,5 +18,5 @@ public class AutorService extends GenericService<Autor> implements IAutorService
 	protected IGenericDAO<Autor> getDao() {
 		return autorDao;
 	}
-
+	
 }

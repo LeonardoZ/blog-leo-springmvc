@@ -81,8 +81,6 @@
 
 <link href="${jquery_ui_css}" rel="stylesheet">
 
-
-
 <!-- Include Font Awesome. -->
 <sp:url value="/resources/css/font-awesome.min.css" var="font" />
 <link href="${font}" rel="stylesheet" type="text/css" />

@@ -4,7 +4,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="blog" tagdir="/WEB-INF/tags"%>
 
-
 <div class="page-header">
 	<h3>Cadastro de autor</h3>
 	<ol class="breadcrumb">
@@ -31,9 +30,7 @@
 	<sf:form role="form" method="POST" action="salvar.do"
 		modelAttribute="autor">
 
-		<div class="form-group">
-			<sf:hidden path="id" />
-		</div>
+		<sf:hidden path="id" />
 		<div class="form-group">
 			<sf:label path="nick">Nick</sf:label>
 			<sf:input cssClass="form-control" path="nick" />

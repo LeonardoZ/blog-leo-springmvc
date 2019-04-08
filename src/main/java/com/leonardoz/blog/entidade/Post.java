@@ -108,6 +108,10 @@ public class Post extends AbstractEntity {
 	public void setCategorias(List<Categoria> categorias) {
 		this.categorias = categorias;
 	}
+	
+	public int numeroDeComentarios() {
+		return comentarios.size();
+	}
 
 	public List<Comentario> getComentarios() {
 		return comentarios;

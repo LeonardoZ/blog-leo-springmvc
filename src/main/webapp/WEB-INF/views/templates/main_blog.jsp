@@ -20,14 +20,7 @@
 					class="glyphicon glyphicon-road"></span> leo's - blog
 				</a>
 			</div>
-			<div>
-				<ul class="nav navbar-nav">
-					<spring:url value="/post/posts" var="blog_url" />
-					<li class="Active"><a href="${blog_url}">o autor</a></li>
-					<li class="Active"><a href="${blog_url}">sobre</a></li>
 
-				</ul>
-			</div>
 			<!-- div nav itens -->
 			<!-- div nav header -->
 		</div>
@@ -36,13 +29,13 @@
 	<!-- Cabecalho -->
 	<div class="page-header">
 		<h1 class="text-center">
-			Leo's<br /> <small>dev notes, java, android, js</small>
+			Leo's<br /> <small>Dev notes, Java, Android, js</small>
 		</h1>
 
 	</div>
 
 	<!-- Conteudo -->
-	<div class="container">
+	<div class="container content">
 		<div class="row center-block">
 			<div class="col-md-12">
 				<tiles:insertAttribute name="conteudo" />
@@ -54,7 +47,7 @@
 	<!-- Rodape -->
 	<div class="footer text-center">
 
-		leo's blog - 2015
+		leo's blog
 
 	</div>
 

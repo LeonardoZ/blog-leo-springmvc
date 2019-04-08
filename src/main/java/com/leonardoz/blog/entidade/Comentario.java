@@ -29,7 +29,7 @@ public class Comentario extends AbstractEntity {
 	@Column(length = 200, unique = true, nullable = false, name = "descricao")
 	private String conteudo;
 
-	@Column(length = 20, unique = true, nullable = false, name = "autor")
+	@Column(length = 20, nullable = false, name = "autor")
 	private String autor;
 
 	public Post getPost() {

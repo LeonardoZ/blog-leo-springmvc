@@ -35,8 +35,8 @@ public class Autor extends AbstractEntity implements Comparable<Autor> {
 	@Column(length = 35, nullable = false, unique = true, name = "email")
 	private String email;
 
-	@Size(max = 16, min = 3)
 	@NotEmpty
+	@Size(min = 3, max = 64)
 	@Column(length = 64, nullable = false, name = "hash_senha")
 	private String hashSenha;
 

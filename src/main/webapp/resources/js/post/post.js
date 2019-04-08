@@ -13,8 +13,9 @@ $(function() {
 		var cs = [];
 		$.ajax({
 			async : false,
-			url : "/blog-leo/cp/categoria/listar.do",
+			url : "/blogleo/cp/categoria/listar.do",
 			success : function(data) {
+				console.log(data)
 				cs = jsonListToCategoria(data);
 			}
 		});
@@ -23,11 +24,13 @@ $(function() {
 
 	function getCategoriasPorDescricao() {
 		var descricao = $("#categoria-input").val();
+		if (descricao === "")
+			return;
 		var categorias = [];
 
 		$.ajax({
 			async : false,
-			url : "/blog-leo/cp/categoria/listar/contendo?desc=" + descricao,
+			url : "/blogleo/cp/categoria/listar/contendo?desc=" + descricao,
 			success : function(data) {
 				categorias = jsonListToCategoria(data);
 			}
@@ -133,7 +136,7 @@ $(function() {
 	function configurarAutocomplete() {
 		$("#categoria-input").autocomplete({
 			minLength : 3,
-			source : getCategoriasPorDescricao(),
+			source : getCategoriasPorDescricao,
 			select : categoriaInputSelected
 		});
 	}
@@ -148,7 +151,7 @@ $(function() {
 	}
 
 	function criarLabelCategoriaAjax(descricao) {
-		$.post("/blog-leo/cp/categoria/criar.do", {
+		$.post("/blogleo/cp/categoria/criar.do", {
 			"descricao" : descricao
 		}).done(function(data) {
 			var categoria = new Categoria(data.id, data.descricao);
